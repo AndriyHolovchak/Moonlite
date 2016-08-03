@@ -19,7 +19,12 @@
             templateUrl: 'app/templates/books.html',
             controller: 'BooksController',
             controllerAs: 'books'
-        })
+        }).state('main.upload', {
+            url: 'upload',
+            templateUrl: 'app/templates/upload.html',
+            controller: 'UploadController',
+            controllerAs: 'upload'
+        });
 
     $urlRouterProvider.otherwise('/books');
   }

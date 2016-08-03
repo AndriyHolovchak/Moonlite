@@ -4,3 +4,13 @@ body {
   background-image: -moz-linear-gradient(right, #fff 75%, #f7f7f7 75%);
   background-image: -ms-linear-gradient(right, #fff 75%, #f7f7f7 75%);
 }
+
+@media (max-width: 992px) {
+  body {
+    background-image: none;
+
+    #sidenav {
+      min-height: unset;
+    }
+  }
+}

@@ -10,7 +10,22 @@
             .controller('BooksController', BooksController);
 
     /** @ngInject */
-    function BooksController() {
-        //var vm = this;
+    function BooksController($uibModal) {
+        var vm = this;
+
+        vm.showDeleteModal = function () {
+            return $uibModal.open({
+                keyboard: false,
+                animation: true,
+                templateUrl: 'app/templates/modal-delete.html',
+                controller: 'DeleteController',
+                controllerAs: 'delete'
+                /*resolve: {
+                    id: function () {
+                        return id;
+                    }
+                }*/
+            });
+        }
     }
 })();

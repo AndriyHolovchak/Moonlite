@@ -1,3 +1,57 @@
 <side-navbar></side-navbar>
 <div id="books" class="container-fluid">
+    <div class="row">
+        <div class="col-md-9">
+            <br/>
+            <h3>All books</h3>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Cover picture</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>John Doe John Doe Title</td>
+                    <td><img class="cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzzvt--FDTBq1cO1vAvobZJ_HLLlXZbKwRrTHGAGkx5XcortG9"></td>
+                    <td>
+                        <button class="btn btn-primary btn-xs" data-title="Edit">
+                            <span class="fa fa-pencil"></span></button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-xs" data-title="Delete" ng-click="books.showDeleteModal()">
+                            <span class="fa fa-trash-o"></span></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td><img class="cover" src="https://sc02.alicdn.com/kf/HTB12YUOKFXXXXcWaXXXq6xXFXXXa/Children-Books.jpg"></td>
+                    <td>
+                        <button class="btn btn-primary btn-xs" data-title="Edit">
+                            <span class="fa fa-pencil"></span></button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-xs" data-title="Delete">
+                            <span class="fa fa-trash-o"></span></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td><img class="cover" src="http://www.inspiredlivingsa.co.za/wp-content/uploads/2015/03/little-childrens-travel-activity-book.jpg"></td>
+                    <td>
+                        <button class="btn btn-primary btn-xs" data-title="Edit">
+                            <span class="fa fa-pencil"></span></button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-xs" data-title="Delete">
+                            <span class="fa fa-trash-o"></span></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
