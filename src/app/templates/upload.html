@@ -4,6 +4,52 @@
         <div class="col-md-9">
             <br/>
             <h3>Add new book</h3>
+            <br/>
+            <form name="Book">
+                <div class="col-md-12">
+                    <div class="uploadImg" type="file"
+                         ngf-select="sell.uploadFiles(photos)" ngf-drop="sell.uploadFiles(photos)"
+                         ng-model="photos"
+                         ngf-multiple="true" ngf-keep="'distinct'"
+                         ngf-max-files="4"
+                         name="file" ngf-max-size="3MB" accept="image/*"
+                         ngf-pattern="'.png,.jpg,.jpeg,.JPEG'"
+                         ngf-model-invalid="errorFile" ng-required>
+                        <div class="text-center">
+                            <img src="assets/images/upload.svg"/>
+                            <h3 class="placeholder">Drag your images here or click for uploading
+                                images.</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="uploaded-photo">
+                        <div class="thumb" ng-repeat="img in sell.files">
+                            <img ngf-background="img" class="thumb-img">
+                            <p>
+                                <br/>
+                                {{ img.name | limitTo: 20 }}{{img.name.length > 20 ? '...' : ''}}
+                            </p>
+                        </div>
+                        <h4 class="centered file_error" ng-show="Photo.file.$error.pattern">
+                            You can upload only jpg, <br> jpeg, png files!
+                        </h4>
+                        <h4 class="file_error" ng-show="Photo.file.$error.maxSize">
+                            {{errorFile.name}} is too large ({{errorFile.size / 1000000|number:1}}mb):
+                            <br> max size
+                            is
+                            5mb.
+                        </h4>
+                        <h4 class="file_error" ng-show="Photo.file.$error.maxFiles">
+                            You can upload only 4 photos!
+                        </h4>
+                        <h4 class="file_error">
+                            {{sell.uploadError}}
+                        </h4>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
