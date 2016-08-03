@@ -5,23 +5,23 @@
             <div class="col-md-9">
                 <br/>
                 <div class="col-md-12">
-                    <h3>Add new book</h3>
+                    <h3>Edit this book</h3>
                     <hr/>
                 </div>
                 <br/>
                 <div class="col-md-12">
                     <h4>Book Title</h4>
-                    <input class="form-control" ng-model="upload.name" type="text" placeholder="Book name" maxlength="500">
+                    <input class="form-control" ng-model="edit.name" type="text" placeholder="Book name" maxlength="500">
                     <br/>
                 </div>
                 <div class="col-md-6">
                     <h4>Cover image</h4>
                     <div class="uploadImg" type="file"
-                         ngf-select="upload.uploadPhoto(photo)" ngf-drop="upload.uploadPhoto(photo)"
+                         ngf-select="edit.uploadPhoto(photo)" ngf-drop="edit.uploadPhoto(photo)"
                          ng-model="photo"
                          name="img" ngf-max-size="2MB" accept="image/*"
                          ngf-pattern="'.png,.jpg,.jpeg,.JPEG'"
-                         ngf-model-invalid="errorFile" ng-required ng-disabled="upload.uploading">
+                         ngf-model-invalid="errorFile" ng-required ng-disabled="edit.uploading">
                         <div class="text-center">
                             <img src="assets/images/upload.svg"/>
                             <h4 class="placeholder">Drag your cover image here or click for uploading
@@ -31,10 +31,10 @@
                     <div class="uploaded-photo">
                         <br/>
                         <div class="thumb">
-                            <img class="cover" ngf-src="upload.photo" class="thumb-img">
+                            <img class="cover" ngf-src="edit.photo" class="thumb-img">
                             <p>
                                 <br/>
-                                {{ upload.photo.name | limitTo: 20 }}{{upload.photo.name.length > 20 ? '...' : ''}}
+                                {{ edit.photo.name | limitTo: 20 }}{{edit.photo.name.length > 20 ? '...' : ''}}
                             </p>
                         </div>
                         <h4 class="centered file_error" ng-show="Book.img.$error.pattern">
@@ -48,18 +48,18 @@
                         </h4>
 
                         <h4 class="file_error">
-                            {{upload.uploadError}}
+                            {{edit.uploadError}}
                         </h4>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <h4>PDF File</h4>
                     <div class="uploadImg" type="file"
-                         ngf-select="upload.uploadFile(file)" ngf-drop="upload.uploadFile(file)"
+                         ngf-select="edit.uploadFile(file)" ngf-drop="edit.uploadFile(file)"
                          ng-model="file"
                          name="file" ngf-max-size="50MB" accept="application/pdf"
                          ngf-pattern="'.pdf'"
-                         ngf-model-invalid="errorFile" ng-required ng-disabled="upload.uploading">
+                         ngf-model-invalid="errorFile" ng-required ng-disabled="edit.uploading">
                         <div class="text-center">
                             <img src="assets/images/upload.svg"/>
                             <h4 class="placeholder">Drag your file here or click for uploading
@@ -71,7 +71,7 @@
                         <div class="thumb">
                             <p>
                                 <br/>
-                                {{ upload.file.name | limitTo: 40 }}{{upload.file.name.length > 40 ? '...' : ''}}
+                                {{ edit.file.name | limitTo: 40 }}{{edit.file.name.length > 40 ? '...' : ''}}
                             </p>
                         </div>
                         <h4 class="centered file_error" ng-show="Book.file.$error.pattern">
@@ -85,17 +85,18 @@
                         </h4>
 
                         <h4 class="file_error">
-                            {{upload.uploadError}}
+                            {{edit.uploadError}}
                         </h4>
                     </div>
                 </div>
+
             </div>
             <div class="col-md-9  pull-right">
                 <div class="col-md-12">
                     <br/>
-                    <button class="btn btn-default btn-lg" ng-click="upload.addBook(upload.name, upload.file, upload.photo)"
-                            ng-disabled="!upload.file || !upload.photo || !upload.name || upload.uploading">Add book
-                        <img ng-show="upload.uploading" src="assets/images/uploading.gif">
+                    <button class="btn btn-default btn-lg" ng-click="edit.addBook(edit.name, edit.file, edit.photo)"
+                            ng-disabled="!edit.file || !edit.photo || !edit.name || edit.uploading">Edit this book
+                        <img ng-show="edit.uploading" src="assets/images/uploading.gif">
                     </button>
                     <br/>
                     <br/>

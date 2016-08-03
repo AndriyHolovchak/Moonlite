@@ -19,12 +19,17 @@
         }
 
         function deleteBook(id) {
-            return $http.delete(API_ROOT_URL + 'books/'+ id);
+            return $http.delete(API_ROOT_URL + 'books/' + id);
+        }
+
+        function getBookById(id) {
+            return $http.get(API_ROOT_URL + 'books/' + id);
         }
 
         return {
             getAllBooks: getAllBooks,
-            deleteBook: deleteBook
+            deleteBook: deleteBook,
+            getBookById: getBookById
         }
     }
 }());

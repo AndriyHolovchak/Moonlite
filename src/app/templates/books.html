@@ -18,7 +18,7 @@
                     <td>{{book.name}}</td>
                     <td><img class="cover" ngf-src="book.picture.url"></td>
                     <td>
-                        <button class="btn btn-primary btn-xs" data-title="Edit">
+                        <button class="btn btn-primary btn-xs" data-title="Edit" ui-sref="main.edit({id: book.id})">
                             <span class="fa fa-pencil"></span></button>
                     </td>
                     <td>
