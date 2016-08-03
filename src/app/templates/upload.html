@@ -1,55 +1,104 @@
 <side-navbar></side-navbar>
 <div id="upload" class="container-fluid">
     <div class="row">
-        <div class="col-md-9">
-            <br/>
-            <h3>Add new book</h3>
-            <br/>
-            <form name="Book">
+        <form name="Book">
+            <div class="col-md-9">
+                <br/>
                 <div class="col-md-12">
+                    <h3>Add new book</h3>
+                </div>
+                <br/>
+                <div class="col-md-12">
+                    <input class="form-control" ng-model="upload.name" type="text" placeholder="Book name" maxlength="500">
+                    <br/>
+                </div>
+                <div class="col-md-6">
                     <div class="uploadImg" type="file"
-                         ngf-select="sell.uploadFiles(photos)" ngf-drop="sell.uploadFiles(photos)"
-                         ng-model="photos"
-                         ngf-multiple="true" ngf-keep="'distinct'"
-                         ngf-max-files="4"
-                         name="file" ngf-max-size="3MB" accept="image/*"
-                         ngf-pattern="'.png,.jpg,.jpeg,.JPEG'"
-                         ngf-model-invalid="errorFile" ng-required>
+                         ngf-select="upload.uploadFile(file)" ngf-drop="upload.uploadFile(file)"
+                         ng-model="file"
+                         name="file" ngf-max-size="50MB" accept="application/pdf"
+                         ngf-pattern="'.pdf'"
+                         ngf-model-invalid="errorFile" ng-required ng-disabled="upload.uploading">
                         <div class="text-center">
                             <img src="assets/images/upload.svg"/>
-                            <h3 class="placeholder">Drag your images here or click for uploading
-                                images.</h3>
+                            <h4 class="placeholder">Drag your file here or click for uploading
+                                book.</h4>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-12">
                     <div class="uploaded-photo">
-                        <div class="thumb" ng-repeat="img in sell.files">
-                            <img ngf-background="img" class="thumb-img">
+                        <br/>
+                        <div class="thumb">
                             <p>
                                 <br/>
-                                {{ img.name | limitTo: 20 }}{{img.name.length > 20 ? '...' : ''}}
+                                {{ upload.file.name | limitTo: 40 }}{{upload.file.name.length > 40 ? '...' : ''}}
                             </p>
                         </div>
-                        <h4 class="centered file_error" ng-show="Photo.file.$error.pattern">
-                            You can upload only jpg, <br> jpeg, png files!
+                        <h4 class="centered file_error" ng-show="Book.file.$error.pattern">
+                            You can upload only pdf file!
                         </h4>
-                        <h4 class="file_error" ng-show="Photo.file.$error.maxSize">
+                        <h4 class="file_error" ng-show="Book.file.$error.maxSize">
                             {{errorFile.name}} is too large ({{errorFile.size / 1000000|number:1}}mb):
                             <br> max size
                             is
-                            5mb.
+                            50mb.
                         </h4>
-                        <h4 class="file_error" ng-show="Photo.file.$error.maxFiles">
-                            You can upload only 4 photos!
-                        </h4>
+
                         <h4 class="file_error">
-                            {{sell.uploadError}}
+                            {{upload.uploadError}}
                         </h4>
                     </div>
                 </div>
-            </form>
-        </div>
+                <div class="col-md-6">
+                    <div class="uploadImg" type="file"
+                         ngf-select="upload.uploadPhoto(photo)" ngf-drop="upload.uploadPhoto(photo)"
+                         ng-model="photo"
+                         name="img" ngf-max-size="2MB" accept="image/*"
+                         ngf-pattern="'.png,.jpg,.jpeg,.JPEG'"
+                         ngf-model-invalid="errorFile" ng-required ng-disabled="upload.uploading">
+                        <div class="text-center">
+                            <img src="assets/images/upload.svg"/>
+                            <h4 class="placeholder">Drag your cover image here or click for uploading
+                                image.</h4>
+                        </div>
+                    </div>
+                    <div class="uploaded-photo">
+                        <br/>
+                        <div class="thumb">
+                            <img class="cover" ngf-src="upload.photo" class="thumb-img">
+                            <p>
+                                <br/>
+                                {{ upload.photo.name | limitTo: 20 }}{{upload.photo.name.length > 20 ? '...' : ''}}
+                            </p>
+                        </div>
+                        <h4 class="centered file_error" ng-show="Book.img.$error.pattern">
+                            You can upload only jpg, <br> jpeg, png files!
+                        </h4>
+                        <h4 class="file_error" ng-show="Book.img.$error.maxSize">
+                            {{errorFile.name}} is too large ({{errorFile.size / 1000000|number:1}}mb):
+                            <br> max size
+                            is
+                            2mb.
+                        </h4>
+
+                        <h4 class="file_error">
+                            {{upload.uploadError}}
+                        </h4>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-9  pull-right">
+                <div class="col-md-12">
+                    <br/>
+                    <button class="btn btn-default btn-lg" ng-click="upload.addBook(upload.name, upload.file, upload.photo)"
+                            ng-disabled="!upload.file || !upload.photo || !upload.name || upload.uploading">Add book
+                        <img ng-show="upload.uploading" src="assets/images/uploading.gif">
+                    </button>
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

@@ -11,7 +11,8 @@
       'ui.router',
       'ui.bootstrap',
       'toastr',
-      'ngFileUpload'
+      'ngFileUpload',
+      'ui-notification'
     ]);
 
 })();

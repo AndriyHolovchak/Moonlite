@@ -10,21 +10,25 @@
             .controller('BooksController', BooksController);
 
     /** @ngInject */
-    function BooksController($uibModal) {
+    function BooksController($uibModal, APIS) {
         var vm = this;
 
-        vm.showDeleteModal = function () {
+        APIS.getAllBooks().then(function(res){
+            vm.books = res.data;
+        });
+
+        vm.showDeleteModal = function (id) {
             return $uibModal.open({
                 keyboard: false,
                 animation: true,
                 templateUrl: 'app/templates/modal-delete.html',
                 controller: 'DeleteController',
-                controllerAs: 'delete'
-                /*resolve: {
+                controllerAs: 'delete',
+                resolve: {
                     id: function () {
                         return id;
                     }
-                }*/
+                }
             });
         }
     }

@@ -1,0 +1,24 @@
+#upload {
+  .uploadImg {
+    background: #eeecec;
+    border: 1px solid #999;
+    padding: 20px;
+    height: 210px;
+    cursor: pointer;
+  }
+
+  .cover {
+    max-width: 200px;
+  }
+
+  .btn {
+    width: 100%;
+    img {
+      height: 30px;
+    }
+  }
+
+  .file_error {
+    color: #d9534f;
+  }
+}
