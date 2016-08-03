@@ -1,17 +1,26 @@
-.acme-navbar-text{
-  color: white;
-}
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+  background: #002e5d;
+  border: none;
+  min-height: 60px;
 
-a {
-  color: black;
-}
+  .navbar-nav {
+    li {
+      a {
+        color: #fff;
+      }
+      a:hover {
+        color: #000;
+      }
+    }
+  }
 
-h1 {
-  font-size: 2em;
-  margin: 0;
-  line-height: 1.25em;
-}
-
-a:hover, a:focus {
-  color: greenyellow;
+  .navbar-brand {
+    color: #fff;
+    padding-top: 0;
+    .logo {
+      height: 55px;
+    }
+  }
 }

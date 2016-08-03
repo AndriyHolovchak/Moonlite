@@ -1,0 +1,23 @@
+/* Set background color and 100% height */
+#sidenav {
+  padding-top: 20px;
+  background-color: #f7f7f7;
+  min-height: calc(100vh - 50px);
+  padding-left: 40px;
+
+  hr {
+    margin-right: -15px;
+    margin-left: -40px;
+    border-color: #d8d8d8;
+  }
+
+  h4 {
+    b {
+      cursor: pointer;
+    }
+  }
+
+  h4:hover, .active {
+    color: #0fa0d5;
+  }
+}
