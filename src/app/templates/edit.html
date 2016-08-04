@@ -11,7 +11,8 @@
                 <br/>
                 <div class="col-md-12">
                     <h4>Book Title</h4>
-                    <input class="form-control" ng-model="edit.name" type="text" placeholder="Book name" maxlength="500">
+                    <input class="form-control" ng-model="edit.name" type="text" placeholder="Book name" maxlength="500"
+                           ng-disabled="edit.uploading">
                     <br/>
                 </div>
                 <div class="col-md-6">
@@ -31,11 +32,15 @@
                     <div class="uploaded-photo">
                         <br/>
                         <div class="thumb">
-                            <img class="cover" ngf-src="edit.photo" class="thumb-img">
-                            <p>
-                                <br/>
-                                {{ edit.photo.name | limitTo: 20 }}{{edit.photo.name.length > 20 ? '...' : ''}}
-                            </p>
+                            <div ng-if="edit.existPhoto">
+                                <h4>Existing cover image:</h4>
+                                <img class="cover" ngf-src="edit.existPhoto" class="thumb-img">
+                            </div>
+                            <div ng-if="!edit.existPhoto">
+                                <h4>New cover image:</h4>
+                                <img class="cover" ngf-src="edit.photo" class="thumb-img"><br/>
+                                <span>{{ edit.photo.name | limitTo: 20 }}{{edit.photo.name.length > 20 ? '...' : ''}}</span>
+                            </div>
                         </div>
                         <h4 class="centered file_error" ng-show="Book.img.$error.pattern">
                             You can upload only jpg, <br> jpeg, png files!
@@ -69,10 +74,15 @@
                     <div class="uploaded-photo">
                         <br/>
                         <div class="thumb">
-                            <p>
-                                <br/>
-                                {{ edit.file.name | limitTo: 40 }}{{edit.file.name.length > 40 ? '...' : ''}}
-                            </p>
+                            <div ng-if="edit.existFile">
+                                <h4>Existing file url:</h4>
+                                <a target="_blank" ng-href="{{edit.existFile}}">{{edit.existFile | limitTo:
+                                    60}}{{edit.existFile.length > 60 ? '...' : ''}}</a>
+                            </div>
+                            <div ng-if="!edit.existFile">
+                                <h4>New file:</h4>
+                                <span>{{ edit.file.name | limitTo: 40 }}{{edit.file.name.length > 40 ? '...' : ''}}</span>
+                            </div>
                         </div>
                         <h4 class="centered file_error" ng-show="Book.file.$error.pattern">
                             You can upload only pdf file!
@@ -94,8 +104,8 @@
             <div class="col-md-9  pull-right">
                 <div class="col-md-12">
                     <br/>
-                    <button class="btn btn-default btn-lg" ng-click="edit.addBook(edit.name, edit.file, edit.photo)"
-                            ng-disabled="!edit.file || !edit.photo || !edit.name || edit.uploading">Edit this book
+                    <button class="btn btn-default btn-lg" ng-click="edit.editBook(edit.name, edit.file, edit.photo)"
+                            ng-disabled="!edit.name || edit.uploading">Edit this book
                         <img ng-show="edit.uploading" src="assets/images/uploading.gif">
                     </button>
                     <br/>
