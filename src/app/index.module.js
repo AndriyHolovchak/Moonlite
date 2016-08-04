@@ -12,7 +12,8 @@
       'ui.bootstrap',
       'toastr',
       'ngFileUpload',
-      'ui-notification'
+      'ui-notification',
+      'ngStorage'
     ]);
 
 })();

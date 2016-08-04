@@ -18,8 +18,12 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController() {
-      //var vm = this;
+    function NavbarController($localStorage) {
+      var vm = this;
+
+      vm.logOut = function() {
+        $localStorage.userCred = {};
+      }
     }
   }
 

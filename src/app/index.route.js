@@ -29,9 +29,14 @@
             templateUrl: 'app/templates/edit.html',
             controller: 'EditController',
             controllerAs: 'edit'
+        }).state('main.login', {
+            url: 'login',
+            templateUrl: 'app/templates/login.html',
+            controller: 'LoginController',
+            controllerAs: 'login'
         });
 
-    $urlRouterProvider.otherwise('/books');
+    $urlRouterProvider.otherwise('login');
   }
 
 })();

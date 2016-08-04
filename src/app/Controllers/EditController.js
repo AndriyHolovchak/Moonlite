@@ -26,11 +26,11 @@
         vm.uploadPhoto = function (photo) {
             vm.photo = photo;
             vm.uploadError = null;
-        }
+        };
 
         vm.uploadFile = function (file) {
             vm.file = file;
             vm.uploadError = null;
-        }
+        };
     }
 })();

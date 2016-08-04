@@ -5,7 +5,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" ng-if="main.stateName != 'main.login'">Log out <span class="glyphicon glyphicon-log-out"></span></a></li>
+        <li><a class="log-out" ui-sref="main.login()" ng-if="main.stateName != 'main.login'" ng-click="navbar.logOut()">Log out <span class="glyphicon glyphicon-log-out"></span></a></li>
       </ul>
     </div>
   </div>
