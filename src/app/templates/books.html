@@ -18,7 +18,7 @@
                 <tr ng-repeat="book in books.books">
                     <td>{{book.name}}</td>
                     <td><img class="cover" ngf-src="book.picture.url"></td>
-                    <td><a target="_blank" ng-href="{{book.file.url}}">{{book.file.url}}</a></td>
+                    <td><a target="_blank" ng-href="{{book.file.url}}">{{book.file.url | limitTo: 60}}{{book.file.url.length > 60 ? '...' : ''}}</a></td>
                     <td>
                         <button class="btn btn-primary btn-xs" data-title="Edit" ui-sref="main.edit({id: book.id})">
                             <span class="fa fa-pencil"></span></button>

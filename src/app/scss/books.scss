@@ -2,4 +2,12 @@
   .cover {
     max-width: 200px;
   }
+
+  table {
+  	tr {
+  		td:first-child {
+  			min-width: 150px;
+  		}
+  	}
+  }
 }
