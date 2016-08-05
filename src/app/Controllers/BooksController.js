@@ -13,8 +13,8 @@
     function BooksController($uibModal, APIS) {
         var vm = this;
 
-        APIS.getAllBooks().then(function(res){
-            vm.books = res.data;
+        APIS.getAllBooks().then(function(res) {
+            vm.books = res.data.books;
         });
 
         vm.showDeleteModal = function (id) {
