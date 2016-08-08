@@ -41,7 +41,7 @@
                 $state.go('main.books');
                 vm.uploading = false;
                 return res;
-            }, function(error) {
+            }, function() {
                 vm.uploading = false;
                 Notification({ message: 'Something happened with your uploading' }, 'warning');
             })

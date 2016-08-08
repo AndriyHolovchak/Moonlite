@@ -17,7 +17,7 @@
         };
 
         vm.remove = function() {
-            APIS.deleteBook(id).then(function(res){
+            APIS.deleteBook(id).then(function(){
                 vm.closeModal();
                 $state.reload();
             });

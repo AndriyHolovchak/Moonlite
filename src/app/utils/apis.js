@@ -14,8 +14,8 @@
     APIS.$inject = ['API_ROOT_URL', '$http'];
     function APIS(API_ROOT_URL, $http) {
 
-        function getAllBooks() {
-            return $http.get(API_ROOT_URL + 'books');
+        function getAllBooks(params) {
+            return $http.get(API_ROOT_URL + 'books' + params);
         }
 
         function deleteBook(id) {

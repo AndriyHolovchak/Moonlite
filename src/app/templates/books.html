@@ -4,30 +4,45 @@
         <div class="col-md-9">
             <br/>
             <h3>All books</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <form ng-submit="books.search(book.name)">
+                        <div class="input-group stylish-input-group">
+                            <input type="text" ng-model="book.name" class="form-control" placeholder="Search">
+                            <span class="input-group-addon">
+                                <button type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                    <br>
+                </div>
+            </div>
             <table class="table table-bordered table-hover">
                 <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Cover picture</th>
-                    <th>File URL</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
+                    <tr>
+                        <th>Title</th>
+                        <th>Cover picture</th>
+                        <th>File URL</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="book in books.books">
-                    <td>{{book.name}}</td>
-                    <td><img class="cover" ngf-src="book.picture.url"></td>
-                    <td><a target="_blank" title="{{book.file.url}}" ng-href="{{book.file.url}}">{{book.file.url | limitTo: 30}}{{book.file.url.length > 30 ? '...' : ''}}</a></td>
-                    <td>
-                        <button class="btn btn-primary btn-xs" data-title="Edit" ui-sref="main.edit({id: book.id})">
-                            <span class="fa fa-pencil"></span></button>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger btn-xs" data-title="Delete" ng-click="books.showDeleteModal(book.id)">
-                            <span class="fa fa-trash-o"></span></button>
-                    </td>
-                </tr>
+                    <tr ng-repeat="book in books.books">
+                        <td>{{book.name}}</td>
+                        <td><img class="cover" ngf-src="book.picture.url"></td>
+                        <td><a target="_blank" title="{{book.file.url}}" ng-href="{{book.file.url}}">{{book.file.url | limitTo: 30}}{{book.file.url.length > 30 ? '...' : ''}}</a></td>
+                        <td>
+                            <button class="btn btn-primary btn-xs" data-title="Edit" ui-sref="main.edit({id: book.id})">
+                                <span class="fa fa-pencil"></span></button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-xs" data-title="Delete" ng-click="books.showDeleteModal(book.id)">
+                                <span class="fa fa-trash-o"></span></button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
