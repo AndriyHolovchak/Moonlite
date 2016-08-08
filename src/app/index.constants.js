@@ -6,6 +6,6 @@
     .constant('API_ROOT_URL', setApiRoot());
 
     function setApiRoot() {
-      return "https://moonlite.herokuapp.com/";
+      return "http://159.203.25.173/";
     }
 })();
